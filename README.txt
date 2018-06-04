@@ -1,0 +1,1 @@
+Exercises came from Learn Python The Hard Way (https://learncodethehardway.org/python/)
