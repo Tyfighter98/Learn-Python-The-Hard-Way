@@ -8,7 +8,7 @@ script, from_file, to_file = argv
 indata = open(from_file).read()
 
 # len() returns how many bytes are in a file
-print(f"Copyign {len(indata)} bytes from {from_file} to {to_file}")
+print(f"Copying {len(indata)} bytes from {from_file} to {to_file}")
 
 # exists() will return true if to_file exists or false if it does not
 print(f"Does the output file exist? {exists(to_file)}")

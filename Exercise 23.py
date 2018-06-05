@@ -19,8 +19,12 @@ def print_line(line, encoding, errors):
     # Now that it is encoded we decode it using UTF-8 once again
     cooked_string = raw_bytes.decode(encoding, errors=errors)
 
-    print(raw_bytes, "<===>", cooked_string)
+    # print(raw_bytes, "<===>", cooked_string)
+    print(raw_bytes)
+    unencoded_output.write(str(raw_bytes) + "\n")
 
-languages = open("Supplimental Files/languages.txt", encoding="utf-8")
+
+languages = open("Supplimental Files/ex23_languages.txt", encoding="utf-8")
+unencoded_output = open("Supplimental Files/ex23_unencoded_languages.txt", "w")
 
 main(languages, input_encoding, error)
