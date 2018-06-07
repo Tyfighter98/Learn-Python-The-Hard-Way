@@ -6,6 +6,7 @@ stuff = ten_things.split(' ')
 more_stuff = ["Day", "Night", "Song", "Frisbee", "Corn", "Bannana", "Girl", "Boy"]
 
 while len(stuff) != 10:
+    # removes the last item in more_stuff and places it into next_one
     next_one = more_stuff.pop()
     print("Adding: ", next_one)
     stuff.append(next_one)
