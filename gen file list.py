@@ -1,9 +1,12 @@
 from os import walk
 from sys import argv
 
+# requires an argument of path at run time to determine which directory to scan
 script, path = argv
 
-files = open("file list.txt", 'w')
+files = open("README.txt", 'a')
+
+files.write("\n\nExercise Breakdown:\n")
 
 chapters = {5 : "More variables and printing", 6 : "Strings and text", 7 : "More printing",
 8 : "Printing, printing", 9 : "Printing, printing, printing", 10 : "What was that?",
@@ -22,27 +25,24 @@ chapters = {5 : "More variables and printing", 6 : "Strings and text", 7 : "More
 49 : "Making Sentences", 50 : "Your First Website", 51 : "Gettign Input from a Browser",
 52 : "The Start of Your Web Game"}
 
+def get_num(file_name):
+    sub = file_name.split(" ")
+    # sub[1] is "<num>.py"
+    num = sub[1]
+    # num[:-3] removes the last 3 chracters (".py") from the string
+    num = num[:-3]
+    # cast num as int so we can use it as a key
+    return int(num)
+
 f = []
+# cycles through all directory paths, directory names, and filenames
 for (dirpath, dirnames, filenames) in walk(path):
+    # add the filenames to the end of the list f
     f.extend(filenames)
     break
 
 for i in f:
     if "Exercise" in i:
-        files.write(i + get_num(i))
-        print(i)
+        files.write(i + ": " + chapters[get_num(i)] + "\n")
     else:
         continue
-
-f.sort()
-print("\n\n\n")
-
-for i in f:
-    if ".py" and "Exercise" in i:
-        print(i)
-    else:
-        continue
-
-def get_num(file_name):
-    sub = file_name.split(" ")
-    return int(sub[1])
